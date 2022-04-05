@@ -1,0 +1,29 @@
+{
+  "name": "polatdev/jsonmapper",
+  "type": "library",
+  "description": "Advanced, intelligent & automatic object-oriented JSON containers for PHP.",
+  "keywords": [
+    "php",
+    "json",
+    "object",
+    "development"
+  ],
+  "homepage": "https://github.com/polatdev/jsonmapper",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "abdulkadir polat",
+      "homepage": "https://github.com/polatdev",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.6",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Polat\\JsonMapper\\": "src/"
+    }
+  }
+}
