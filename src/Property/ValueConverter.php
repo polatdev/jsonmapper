@@ -19,6 +19,7 @@ namespace Polat\JsonMapper\Property;
 
 use Polat\JsonMapper\Exception\JsonMapperException;
 use Polat\JsonMapper\Exception\PropTypeNotEqualsException;
+use Polat\JsonMapper\JsonMapper;
 use Polat\JsonMapper\Utilities;
 
 /**
@@ -112,14 +113,15 @@ class ValueConverter
         }
 
         // It throws an error if the property types do not match.
-        if (!$propDef->isObjectType)
-            if (!empty($propDef->propType))
-                if ($propDef->propType !== Utilities::getType($value)) {
-                    throw new PropTypeNotEqualsException(sprintf(
-                        'You defined %s as %s but it returned as %s.',
-                        $propName, $propDef->propType, Utilities::getType($value)
-                    ));
-                }
+        if (JsonMapper::CHECK_PROP_TYPE_EQUALS)
+            if (!$propDef->isObjectType)
+                if (!empty($propDef->propType))
+                    if ($propDef->propType !== Utilities::getType($value)) {
+                        throw new PropTypeNotEqualsException(sprintf(
+                            'You defined %s as %s but it returned as %s.',
+                            $propName, $propDef->propType, Utilities::getType($value)
+                        ));
+                    }
 
         // ------------
         // TODO: Improve all error messages below to make them more

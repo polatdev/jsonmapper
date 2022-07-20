@@ -322,6 +322,12 @@ class JsonMapper
     const USE_MAGIC_LOOKUP_CACHE = true;
 
     /**
+     * Verify if the variables come with the specified type.
+     * If it does not come of the specified type, throw error.
+     */
+    const CHECK_PROP_TYPE_EQUALS = false;
+
+    /**
      * Tells us how to map JSON properties to internal PHP types or objects.
      *
      * This constant can be overridden in your subclasses, to add custom JSON
